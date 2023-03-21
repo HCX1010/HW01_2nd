@@ -3,6 +3,7 @@ package com.example.myapplication
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -20,10 +21,14 @@ class MainActivity : AppCompatActivity() {
             val bundle = Bundle()
             val editTextName = findViewById<EditText>(R.id.editTextName).text
             val editTextNumber = findViewById<EditText>(R.id.editTextNumber).text
+
             bundle.putString("key1", editTextName.toString())
             bundle.putString("key2",editTextNumber.toString())
             intent.putExtras(bundle)
             startActivityForResult(intent,1)
+
+            findViewById<EditText>(R.id.editTextName).visibility = View.INVISIBLE
+            findViewById<EditText>(R.id.editTextNumber).visibility = View.INVISIBLE
         }
 
 
